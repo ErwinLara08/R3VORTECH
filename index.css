@@ -1,0 +1,436 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.content {
+    min-height: 80px;
+    background: linear-gradient( 90deg,
+    rgb(148, 13, 13)0%,
+    rgb(0, 0, 0)70%
+    );
+}
+.menu {
+    position: relative;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    position: relative;
+    top: -30px;
+    object-fit: contain; /* Asegura que se vea completo dentro de su contenedor */
+}
+.menu .navbar ul li {
+    position: relative;
+    float: left;
+}
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 20px;
+    display: block;
+    color: #ffffff;
+    font-weight: bold;
+}
+.menu .navbar ul li a:hover {
+    color:#ff0000
+    
+}
+#menu { 
+    display: none;
+}
+.menu-icono {
+    width: 25px;
+}
+.menu label {
+    cursor: pointer;
+    display: none;
+}
+@media(max-width:991px){
+    .content {
+        min-height: 70px;
+    }
+    .menu {
+        top:0;
+        padding: 20px;
+    }
+    .menu label {
+        display: 	initial;
+    }
+    .menu .navbar {
+        position: absolute;
+        top:100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient( 90deg,
+        rgba(203,18,133,1)0%,
+        rgba(80,49,145,1)70%
+        );
+        display: none;
+    }
+    .menu .navbar ul li {
+        width: 100%;
+    }
+
+    #menu:checked ~ .navbar {
+        display: initial;
+    }
+}
+/* Ocultar el checkbox */
+.toggle-menu {
+    display: none;
+}
+.nav-item {
+position: relative;
+}
+.nav-item a:hover,
+.nav-item label:hover {
+color: #ff0000; /* Color rojo para las letras */
+}
+.nav-item label {
+    font-size: 18px;
+    padding: 20px;
+    display: block;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+.nav-item label:hover {
+background-color: #ff000000; /*color fondo botones desplegables */
+}
+/* Submenú oculto por defecto */
+.submenu {
+    display: none; /* Oculto inicialmente */
+position: absolute; 
+top: 100%;
+left: 0;
+background: linear-gradient(to bottom, #000000ce, #a40d0d8d); /* Degradado azul */
+    transition: background-color 0.9s ease, color 0.3s ease; /* Transición suave */
+list-style: none;
+padding: 0;
+z-index: 1000;
+border-radius: 5px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+/* Elementos del submenú */
+.submenu li {
+background-color: #03660000;
+padding: 0;
+width: max-content;
+
+}
+.submenu a {
+color: rgba(238, 2, 2, 0);
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.submenu a:hover { /*color submenu al pasar mouse*/
+width: max-content;
+background-color: #d44040b3; 
+}
+/* Mostrar el submenú al hacer clic */
+.toggle-menu:checked ~ .submenu {
+    display: block;
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.content {
+    min-height: 80px;
+    background: linear-gradient(
+        90deg,
+        rgb(203, 18, 133)0%
+        rgba(80,49145,1)70%
+    );
+}
+
+.hero {
+    top: 100px;
+    position: absolute;
+    text-align: center;
+    color: rgb(121, 14, 14);
+}
+.hero h1 {
+    font-size: 2.5rem;
+    color: rgb(255, 0, 0);
+}
+.hero p {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+}.card-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.card {
+    background: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(25% - 20px); /* Cada tarjeta ocupa el 25% del ancho con espacio entre ellas */
+    display: flex;
+    flex-direction: column;
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 150px; /* Ajusta el tamaño del carrusel */
+    overflow: hidden;
+}
+
+.image-slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: slide 9s infinite; /* Cambia imágenes automáticamente */
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Transición suave */
+}
+
+/* Mostrar imágenes en secuencia */
+.image-slider img:nth-child(1) {
+    animation-delay: 0s;
+}
+.image-slider img:nth-child(2) {
+    animation-delay: 3s;
+}
+.image-slider img:nth-child(3) {
+    animation-delay: 6s;
+}
+
+
+/* Animación para las imágenes */
+@keyframes slide {
+    0%, 33.33% {
+        opacity: 1; /* Imagen visible */
+    }
+    33.34%, 100% {
+        opacity: 0; /* Imagen oculta */
+    }
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #003366;
+}
+
+.card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+
+footer {
+    width: 100%;
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+.rojo{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 28px;
+            color: red; /* Azul neón */
+            text-transform:capitalize;
+            letter-spacing: 2px;
+}
+.negro{
+    padding-left: 70px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 28px;
+            color: black; /* Azul neón */
+            text-transform:capitalize;
+            letter-spacing: 2px;
+}
+.carrusel {
+    background-color:rgb(148, 13, 13);
+    z-index: 998;
+    align-content: center;    
+    position:relative;
+    width: 100%;
+    padding: 70px;    
+    height: 450px;
+    overflow:hidden;
+    padding-top: 0px;
+}
+.imagenes {
+    display: flex;
+    width: calc(100% * 5); /* 5 imágenes */
+    animation: carrusel linear infinite;
+    animation-duration: 40s;   
+}
+.imagenes img {
+    width: 600px;
+    height: 600px;
+    object-fit: cover; /* Muestra toda la imagen sin recortarla */
+    flex-shrink: 0;
+}
+@keyframes carrusel {
+    0% {
+        transform: translateX(0);
+    }
+    6.66% {
+        transform: translateX(-6.66%);
+    }
+    13.33% {
+        transform: translateX(-13.33%);
+    }
+    20% {
+        transform: translateX(-20%);
+    }
+    26.66% {
+        transform: translateX(-26.66%);
+    }
+    33.33% {
+        transform: translateX(-33.33%);
+    }
+    40% {
+        transform: translateX(-40%);
+    }
+    46.66% {
+        transform: translateX(-46.66%);
+    }
+    53.33% {
+        transform: translateX(-53.33%);
+    }
+    60% {
+        transform: translateX(-60%);
+    }
+    66.66% {
+        transform: translateX(-66.66%);
+    }
+    73.33% {
+        transform: translateX(-73.33%);
+    }
+    80% {
+        transform: translateX(-80%);
+    }
+    86.66% {
+        transform: translateX(-86.66%);
+    }
+    93.33% {
+        transform: translateX(-93.33%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.whatsapp-chat {
+    width: 250px;
+    position: fixed; /* Fija la sección en la pantalla */
+    bottom: 20px; /* Posición a 20px del fondo */
+    right: 20px; /* Posición a 20px de la derecha */
+    z-index: 9999; /* Asegura que esté sobre otros elementos */
+}
+
+.whatsapp-button {
+    display: flex; /* Flexbox para alinear el icono y el texto */
+    align-items: center; /* Centra el contenido verticalmente */
+    background-color: #25d365c9; /* Color de fondo verde de WhatsApp */
+    color: white; /* Color del texto */
+    padding: 15px 20px; /* Espaciado alrededor del botón */
+    border-radius: 50px; /* Bordes redondeados */
+    text-decoration: none; /* Elimina subrayado */
+    font-size: 16px; /* Tamaño de fuente */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+.whatsapp-button img {
+    mix-blend-mode:multiply; /* Mezcla los colores de la imagen con el fondo */
+    width: 30px; /* Ajusta el tamaño del icono */
+    height: 30px; /* Ajusta el tamaño del icono */
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e; /* Cambio de color al pasar el mouse */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
+}
+/*FACEBOK*/
+.facebook-chat {
+    width: 250px;
+    position: fixed; /* Fija la sección en la pantalla */
+    bottom: 100px; /* Posición a 20px del fondo */
+    right: 20px; /* Posición a 20px de la derecha */
+    z-index: 9999; /* Asegura que esté sobre otros elementos */
+}
+
+.facebook-button {
+    display: flex; /* Flexbox para alinear el icono y el texto */
+    align-items: center; /* Centra el contenido verticalmente */
+    background-color: #0925b1c6; /* Color de fondo verde de WhatsApp */
+    color: white; /* Color del texto */
+    padding: 15px 20px; /* Espaciado alrededor del botón */
+    border-radius: 50px; /* Bordes redondeados */
+    text-decoration: none; /* Elimina subrayado */
+    font-size: 16px; /* Tamaño de fuente */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+.facebook-button img {
+    width: 30px; /* Ajusta el tamaño del icono */
+    mix-blend-mode:multiply; /* Mezcla los colores de la imagen con el fondo */
+    height: 30px; /* Ajusta el tamaño del icono */
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+.facebook-button:hover {
+    background-color: #128c7e; /* Cambio de color al pasar el mouse */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
+}
+.hero {
+    position: absolute; /* Fija la sección en la pantalla */
+    bottom: 0px; /* Posición a 20px del fondo */
+    right: 300px; /* Posición a 20px de la derecha */
+    z-index: 9999; /* Asegura que esté sobre otros elementos */
+}
